@@ -28,7 +28,7 @@ export default {
   },
   mounted () {
   axios
-    .get('https://www.smh.com.au/rss/feed.xml')
+    .get('https://cors-anywhere.herokuapp.com/https://www.news.com.au/content-feeds/latest-news-national/')
     .then(response => {
        var self = this;
        parseString(response.data, function (err, result) {
