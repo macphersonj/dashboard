@@ -5,7 +5,7 @@
   <!-- <h1>{{ weather.name }}</h1> -->
   <!-- <img :src="'http://openweathermap.org/img/w/' + weather.weather[0].icon  + '.png'">  -->
 
-  <div v-if="weather" class="mt-10 max-w-sm rounded overflow-hidden shadow-lg bg-white p-6 text-grey">
+  <div v-if="weather" class="mt-10 w-full rounded overflow-hidden shadow-lg bg-white p-6 text-grey">
     <div class="flex mb-4">
       <div class="w-1/2">
         <h2 class="text-3xl leading-none font-thin text-grey">{{ weather.name }}</h2>
@@ -34,7 +34,7 @@
         <p class="text-grey text-right font-light" style="font-size:6.8em;">
           {{ Math.round(weather.main.temp) }}&deg;
         </p>
-        <div class="text-center">
+        <div class="text-right">
           Min: {{ weather.main.temp_min }}&deg; | Max: {{ weather.main.temp_max }}&deg;
         </div>
       </div>

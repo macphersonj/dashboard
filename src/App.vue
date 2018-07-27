@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <div class="container mx-auto px-4">
-      <div class="flex">
-        <div class="w-1/2 bg-grey p-10">
+      <div class="flex flex-col lg:flex-row">
+        <div class="w-full lg:w-1/2 bg-grey p-10">
           <clock></clock>
         </div>
 
-        <div class="w-1/2 bg-grey-light p-10">
+        <div class="w-full lg:w-1/2 bg-grey-light p-10">
           <weather></weather>
         </div>
       </div>
 
-      <div class="flex">
-        <div class="w-1/2 bg-grey-light p-10">
+      <div class="flex flex-col lg:flex-row">
+        <div class="w-full lg:w-1/2 bg-grey-light p-10">
           <news></news>
         </div>
-        <div class="w-1/2 bg-grey p-10">
+        <div class="w-full lg:w-1/2 bg-grey p-10">
           <crypto></crypto>
         </div>
       </div>
