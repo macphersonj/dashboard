@@ -5,32 +5,44 @@
   <!-- <h1>{{ weather.name }}</h1> -->
   <!-- <img :src="'http://openweathermap.org/img/w/' + weather.weather[0].icon  + '.png'">  -->
 
-  <div class="mt-10 max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+  <div v-if="weather" class="mt-10 max-w-sm rounded overflow-hidden shadow-lg bg-white p-6 text-grey">
     <div class="flex mb-4">
       <div class="w-1/2">
         <h2 class="text-3xl leading-none font-thin text-grey">{{ weather.name }}</h2>
-
-        <div class="flex items-center mt-4 text-grey">
+        <div class="bg-grey w-1/2 rounded my-2" style="height: 3px;">
+        </div>
+        <div class="flex items-center mt-6 text-grey">
           <i class="mr-2 wi" style="font-size: 2.3em" :class="[classWI]"></i>
           <p class="font-thin text-2xl">{{ weather.weather[0].description }}</p>
         </div>
 
-        <div>
-          <ion-icon name="arrow-down"></ion-icon>
+        <div class="flex items-center mt-6 text-grey">
+          <i class="fas fa-arrow-up mr-2"></i>
+          <p class="font-light mr-2 tracking-wide">
+            {{ weather.sys.sunrise | moment("h:mm") }} am
+          </p>
+          <i class="fas fa-arrow-down mr-2"></i>
+          <p class="font-light tracking-wide">
+            {{ weather.sys.sunset | moment("h:mm") }} pm
+          </p>
+
 
         </div>
 
       </div>
       <div class="w-1/2">
-        <p class="text-grey text-right font-thin" style="font-size:5.8em;">
-          {{ weather.main.temp }}&deg;<sup style="font-size: 20px; top: -2em">C</sup>
+        <p class="text-grey text-right font-light" style="font-size:6.8em;">
+          {{ Math.round(weather.main.temp) }}&deg;
         </p>
+        <div class="text-center">
+          Min: {{ weather.main.temp_min }}&deg; | Max: {{ weather.main.temp_max }}&deg;
+        </div>
       </div>
 
     </div>
   </div>
 
-  <ul v-if="weather">
+  <!-- <ul v-if="weather">
 
     <li>
       Current temp: {{ weather.main.temp }}&deg;C
@@ -44,7 +56,7 @@
     <li>
       Sunrise: {{ weather.sys.sunrise | moment("h:mm") }} a.m. | Sunset: {{ weather.sys.sunset | moment("h:mm") }} p.m.
     </li>
-  </ul>
+  </ul> -->
 
 </div>
 
