@@ -4,6 +4,32 @@
   <h2>Weather</h2>
   <!-- <h1>{{ weather.name }}</h1> -->
   <!-- <img :src="'http://openweathermap.org/img/w/' + weather.weather[0].icon  + '.png'">  -->
+
+  <div class="mt-10 max-w-sm rounded overflow-hidden shadow-lg bg-white p-6">
+    <div class="flex mb-4">
+      <div class="w-1/2">
+        <h2 class="text-3xl leading-none font-thin text-grey">{{ weather.name }}</h2>
+
+        <div class="flex items-center mt-4 text-grey">
+          <i class="mr-2 wi" style="font-size: 2.3em" :class="[classWI]"></i>
+          <p class="font-thin text-2xl">{{ weather.weather[0].description }}</p>
+        </div>
+
+        <div>
+          <ion-icon name="arrow-down"></ion-icon>
+
+        </div>
+
+      </div>
+      <div class="w-1/2">
+        <p class="text-grey text-right font-thin" style="font-size:5.8em;">
+          {{ weather.main.temp }}&deg;<sup style="font-size: 20px; top: -2em">C</sup>
+        </p>
+      </div>
+
+    </div>
+  </div>
+
   <ul v-if="weather">
 
     <li>
@@ -41,6 +67,32 @@ export default {
   axios
     .get('//api.openweathermap.org/data/2.5/weather?lat=-33.885202&lon=151.137126&units=metric&appid=f57b5dc360602d94c11101819f5428ab')
     .then(response => (this.weather = response.data ))
+  },
+  computed: {
+    classWI: function() {
+      if (this.weather != null){
+        var weatherID = this.weather.weather[0].id;
+
+        if (weatherID >= 200 && weatherID <= 232) {
+          return 'wi-thunderstorm';
+        } else if (weatherID >= 300 && weatherID <= 321) {
+          return 'wi-sprinkle';
+        } else if (weatherID >= 500 && weatherID <= 531) {
+          return 'wi-rain';
+        } else if (weatherID >= 600 && weatherID <= 622) {
+          return 'wi-snow';
+        } else if (weatherID >= 701 && weatherID <= 781) {
+          return 'wi-train';
+        } else if(weatherID == 800) {
+          return 'wi-day-sunny';
+        } else if (weatherID >= 801 && weatherID <= 804) {
+          return 'wi-day-cloudy';
+        } else if (weatherID >= 900 && weatherID <= 962) {
+          return 'wi-small-craft-advisory';
+        }
+      }
+      return '';
+    }
   }
 }
 </script>

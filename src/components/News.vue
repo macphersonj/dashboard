@@ -1,11 +1,12 @@
 <template>
   <div>
     <h2>News</h2>
-    <ul>
-      <li v-for="item in news.item">
+    <ul class="p-0 mt-10">
+      <li v-for="item in news.item" class="w-full rounded bg-white overflow-hidden shadow-lg p-4 mb-2">
         {{ item.title[0] }}
       </li>
     </ul>
+
   </div>
 </template>
 
