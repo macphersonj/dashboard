@@ -17,6 +17,8 @@
         </div>
         <div class="w-full lg:w-1/2 bg-grey p-10">
           <crypto></crypto>
+          <cryptoGraph></cryptoGraph>
+
         </div>
       </div>
 
@@ -34,6 +36,7 @@ import news from './components/News.vue'
 import weather from './components/Weather.vue'
 import crypto from './components/Crypto.vue'
 import clock from './components/Time.vue'
+import cryptoGraph from './components/CryptoGraph.vue'
 
 export default {
   name: 'App',
@@ -41,7 +44,8 @@ export default {
     news,
     weather,
     crypto,
-    clock
+    clock,
+    cryptoGraph
   }
 }
 
